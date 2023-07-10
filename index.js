@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import path from 'path'
 import 'dotenv/config';
 import './src/database/conexionDb';
+import recetasRouter from './src/routes/recetas.routes.js'
+import usuariosRouter from './src/routes/usuarios.routes.js'
 
 const instanciaExpress = express();
 
@@ -17,3 +19,6 @@ instanciaExpress.use(morgan('dev')) // muestra informacion del status de las pet
 
 
 instanciaExpress.use(express.static(path.join(__dirname, '/public' ))) // uso static para asignar index.html que se encuentre en la ruta provista por path como el archivo a mostrar cuando se acceda a la raiz del backend
+
+instanciaExpress.use('/blogrecetas', recetasRouter)
+instanciaExpress.use('/blogrecetas', usuariosRouter)
