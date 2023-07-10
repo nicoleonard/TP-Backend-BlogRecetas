@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 
 const instanciaExpress = express();
 
@@ -9,3 +10,4 @@ instanciaExpress.listen(instanciaExpress.get('puerto'), ()=>{console.log('Estoy 
 
 instanciaExpress.use(cors()); // permite conexiones remotas
 instanciaExpress.use(express.json()) // permite extraer datos del request en formato json
+instanciaExpress.use(morgan('dev')) // muestra informacion del status de las peticiones (get,post,put,delete) en la consola
