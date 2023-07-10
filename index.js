@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import path from 'path'
 
 const instanciaExpress = express();
 
@@ -11,3 +12,6 @@ instanciaExpress.listen(instanciaExpress.get('puerto'), ()=>{console.log('Estoy 
 instanciaExpress.use(cors()); // permite conexiones remotas
 instanciaExpress.use(express.json()) // permite extraer datos del request en formato json
 instanciaExpress.use(morgan('dev')) // muestra informacion del status de las peticiones (get,post,put,delete) en la consola
+
+
+instanciaExpress.use(express.static(path.join(__dirname, '/public' ))) // uso static para asignar index.html que se encuentre en la ruta provista por path como el archivo a mostrar cuando se acceda a la raiz del backend
