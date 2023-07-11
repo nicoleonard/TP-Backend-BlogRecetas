@@ -9,3 +9,14 @@ export const obtenerRecetas = async (req,res)=>{
         res.status(404).json({mensaje: 'No se puedieron buscar recetas'})
     }
 }
+
+export const crearReceta = async (req,res)=>{
+    try{
+        const nuevaReceta = new Receta(req.body)
+        await nuevaReceta.save()
+        res.status(201).json({mensaje: 'La receta se creó correctamente'})
+    } catch (error){
+        console.log(error)
+        res.status(404).json({mensaje: 'No se puedo crear la receta'})
+    }
+}
