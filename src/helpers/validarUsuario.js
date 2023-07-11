@@ -9,6 +9,7 @@ const validarUsuario = [
         .withMessage(
             "El nombre de usuario debe tener entre 5 y 100 caracteres"
         ),
+    check("email").notEmpty().withMessage("El email es requerido").matches(/\S+@\S+\.\S+/).withMessage("Debe ser un email valido"),
     check("clave")
         .notEmpty()
         .withMessage("La clave es requerida")
@@ -19,7 +20,6 @@ const validarUsuario = [
             /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})/)
         .withMessage('La contraseña puede tener de 8 a 64 caracteres y contiene una mezcla de mayusculas y minusculas, un numero y un caracter especial'
         ),
-
     check("tipo")
         .notEmpty()
         .withMessage('Error en el tipo de usuario')

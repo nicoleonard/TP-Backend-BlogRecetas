@@ -7,6 +7,12 @@ const usuarioSchema = new Schema({ // esquema que van a seguir los usuarios que 
         required: true,
         unique: true
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: /\S+@\S+\.\S+/
+      },
     clave: {
         type: String,
         required: true,
