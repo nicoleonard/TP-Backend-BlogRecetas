@@ -30,3 +30,13 @@ export const borrarReceta = async (req,res)=>{
         res.status(404).json({mensaje: 'No se pudo borrar la receta'})
     }
 }
+
+export const editarReceta = async (req,res)=>{
+    try{
+        await Receta.findByIdAndUpdate(req.params.id, req.body)
+        res.status(200).json({mensaje: 'La receta se editó correctamente'})
+    } catch (error){
+        console.log(error)
+        res.status(400).json({mensaje: 'No se pudo modificar la receta'})
+    }
+}
