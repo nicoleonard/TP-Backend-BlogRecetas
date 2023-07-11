@@ -6,7 +6,7 @@ export const obtenerUsuarios = async (req,res)=>{
         res.status(200).json(usuarios)
     } catch (error){
         console.log(error)
-        res.status(404).json({mensaje: 'No se puedieron buscar usuarios'})
+        res.status(404).json({mensaje: 'No se pudieron buscar usuarios'})
     }
 }
 
@@ -17,6 +17,6 @@ export const crearUsuario = async (req,res)=>{
         res.status(201).json({mensaje: 'El usuario se creó correctamente'})
     } catch (error){
         console.log(error)
-        res.status(404).json({mensaje: 'No se puedo crear el usuario'})
+        res.status(404).json({mensaje: 'No se pudo crear el usuario'})
     }
 }

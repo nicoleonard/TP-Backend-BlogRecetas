@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { crearReceta, obtenerRecetas } from '../controllers/recetas.controllers';
+import { borrarReceta, crearReceta, obtenerRecetas } from '../controllers/recetas.controllers';
 
 const router = Router();
 
-router.route('/recetas').get(obtenerRecetas).post(crearReceta);
+router.route('/recetas').get(obtenerRecetas).post(crearReceta); // a la ruta /recetas le puedo hacer las peticiones que aqui se asocian con la funcion a la que invocan (se comunica rutas con controladores)
+router.route('/recetas/:id').delete(borrarReceta);
 export default router;

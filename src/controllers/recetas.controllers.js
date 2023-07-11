@@ -6,7 +6,7 @@ export const obtenerRecetas = async (req,res)=>{
         res.status(200).json(recetas)
     } catch (error){
         console.log(error)
-        res.status(404).json({mensaje: 'No se puedieron buscar recetas'})
+        res.status(404).json({mensaje: 'No se pudieron buscar recetas'})
     }
 }
 
@@ -17,6 +17,16 @@ export const crearReceta = async (req,res)=>{
         res.status(201).json({mensaje: 'La receta se creó correctamente'})
     } catch (error){
         console.log(error)
-        res.status(404).json({mensaje: 'No se puedo crear la receta'})
+        res.status(404).json({mensaje: 'No se pudo crear la receta'})
+    }
+}
+
+export const borrarReceta = async (req,res)=>{
+    try{
+        await Receta.findByIdAndDelete(req.params.id)
+        res.status(200).json({mensaje: 'La receta se borró correctamente'})
+    } catch (error){
+        console.log(error)
+        res.status(404).json({mensaje: 'No se pudo borrar la receta'})
     }
 }
