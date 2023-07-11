@@ -18,7 +18,7 @@ const recetaSchema = new Schema({ // esquema que van a seguir las recetas que al
     instrucciones: {
         type: String,
         minLength: 12,
-        maxLength: 200,
+        maxLength: 300,
         required: true,
         unique: true
     }
