@@ -9,3 +9,14 @@ export const obtenerUsuarios = async (req,res)=>{
         res.status(404).json({mensaje: 'No se puedieron buscar usuarios'})
     }
 }
+
+export const crearUsuario = async (req,res)=>{
+    try{
+        const nuevoUsuario = new Usuario(req.body)
+        await nuevoUsuario.save()
+        res.status(201).json({mensaje: 'El usuario se creó correctamente'})
+    } catch (error){
+        console.log(error)
+        res.status(404).json({mensaje: 'No se puedo crear el usuario'})
+    }
+}
