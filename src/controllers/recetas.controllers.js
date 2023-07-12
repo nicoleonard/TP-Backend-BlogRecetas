@@ -10,6 +10,16 @@ export const obtenerRecetas = async (req,res)=>{
     }
 }
 
+export const obtenerReceta = async (req,res)=>{
+    try{
+        const receta = await Receta.findById(req.params.id, req.body)
+        res.status(200).json(receta)
+    } catch (error){
+        console.log(error)
+        res.status(400).json({mensaje: 'No se pudo encontrar la receta'})
+    }
+}
+
 export const crearReceta = async (req,res)=>{
     try{
         const nuevaReceta = new Receta(req.body)
