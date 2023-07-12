@@ -21,7 +21,6 @@ const usuarioSchema = new Schema({ // esquema que van a seguir los usuarios que 
     tipo: {
         type: String,
         required: true,
-        unique: true
     }
 })
 
